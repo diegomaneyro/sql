@@ -1,8 +1,10 @@
+-- Crear base de datos
 CREATE DATABASE pagila;
+
+-- Eliminar base de datos
 DROP DATABASE pagila;
 
-
--- Creación de tablas
+-- Crear tabla
 CREATE TABLE IF NOT EXISTS employees(
 	id INT
 );
@@ -10,7 +12,7 @@ CREATE TABLE IF NOT EXISTS employees(
 -- ver datos de una tabla
 SELECT * FROM employees;
 
--- Tipos de datos: boolean
+-- Tipos de datos: INT, BOOLEAN
 CREATE TABLE IF NOT EXISTS employees(
 	id INT,
 	married BOOLEAN 
