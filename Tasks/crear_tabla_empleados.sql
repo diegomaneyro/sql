@@ -58,5 +58,28 @@ WHERE name IN('Juan Perez', 'Maria Garcia','Pedro Gomez','Ana Torres');
 -- ELIMINAR COLUMNA GENERO
 ALTER TABLE employees_2025 DROP COLUMN IF EXISTS genre;
 
+-- INGREASAR UN REGISTRO CON ID MANUAL
+INSERT INTO employees_2025(id, name, married, salary, birth_day, start_at, email) VALUES
+(11, 'Pablo Lopez', 'True', 1234.32, '25-08-1986', '08:00:00', 'pablolopez@mail.com');
+
+-- Actualizar la secuencia del id para la numeracion posterior a la ingresada manualmente
+SELECT setval('employees_id_seq', GREATEST((SELECT MAX(id) FROM employees_2025), 11) + 1);
+
+-- Ingresar un registro para verificar la asignacion automatica de id
+INSERT INTO employees_2025(name, married, salary, birth_day, start_at, email) VALUES
+('Jose Ledesma', False, 325.32, '15-06-1984', '07:30:00', 'joseledesma@mail.com');
+
+--MODIFICAR COLUMNA DE CORREO PARA QUE SEA UNICA
+ALTER TABLE employees_2025 ADD CONSTRAINT unique_email UNIQUE (email);
+
+-- AGREGAR RESTRICCION A COLUMNA SALARIO QUE SEA MAYOR A CERO
+ALTER TABLE employees_2025 ADD CONSTRAINT check_salary CHECK (salary > 0);
+
+-- VERIFICAR REGISTROS QUE TENGAN MENOS DE 18 AÑOS
+SELECT * FROM employees_2025 WHERE birth_day > CURRENT_DATE - INTERVAL '18 years'; 
+
+-- AGREGAR RESTRICCION A FECHA NACIMIENTO MENOR A LA FECHA ACTUAL
+ALTER TABLE employees_2025 ADD CONSTRAINT check_birth_day CHECK (birth_day < CURRENT_DATE - INTERVAL '18 years');
+
 -- LISTAR TABLA ORDENADA POR ID
 SELECT * FROM employees_2025 ORDER BY id;
