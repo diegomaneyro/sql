@@ -5,6 +5,7 @@
 	Read (SELECT FROM), 
 	Update (UPDATE SET)
 	Delete (DELETE FROM)
+	
 */
 
 -- 1. Consultas o recuperación de datos
