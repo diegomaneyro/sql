@@ -1,15 +1,3 @@
-/* Sentencias DML: Data Manipulation Language
-	CRUD: 
-	
-	Create (INSERT INTO)
-	Read (SELECT FROM), 
-	Update (UPDATE SET)
-	Delete (DELETE FROM)
-	
-*/
-
--- 1. Consultas o recuperación de datos
-
 SELECT * FROM employees;
 
 SELECT id FROM employees;
