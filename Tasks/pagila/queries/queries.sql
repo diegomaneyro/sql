@@ -139,9 +139,11 @@ WHERE address_id = 1;
 74 MySakila Drive, Alberta 300
 */
 
-
-
-
-
 -- CONSULTAR INVENTARIO DE PELICULAS
 SELECT * FROM inventory LIMIT 100;
+
+-- CONSULTAR FILMS QUE CONTENGAN LA PALABRA 'Documentary'
+SELECT * 
+FROM film
+WHERE description
+LIKE '%Documentary%';
